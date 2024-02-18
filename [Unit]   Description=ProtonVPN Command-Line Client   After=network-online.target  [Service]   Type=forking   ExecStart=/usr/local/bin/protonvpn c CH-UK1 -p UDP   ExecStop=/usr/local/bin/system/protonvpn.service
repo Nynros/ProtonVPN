@@ -1,0 +1,13 @@
+[Unit]
+  Description=ProtonVPN Command-Line Client
+  After=network-online.target
+
+[Service]
+  Type=forking
+  ExecStart=/usr/local/bin/protonvpn c CH-UK1 -p UDP
+  ExecStop=/usr/local/bin/protonvpn d
+  Restart=always
+  RestartSec=2
+
+[Install]
+  WantedBy=multi-user.target
